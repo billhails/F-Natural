@@ -1,0 +1,46 @@
+A deliberately small, purely functional language with ML-like semantics and javascript-like syntax.
+
+I have several partially working prototypes for this language, implemented in various languages, while
+trying to iron out the basic behavior.
+
+// Examples:
+
+fn factorial (n) {
+    if (n == 0) { 1 }
+    else { n * factorial(n - 1) }
+}
+
+// or, more idiomatically using pattern matching:
+fn factorial {
+    (0) { 1 }
+    (n) { n * factorial(n - 1) }
+}
+
+// first class environments
+env foo {
+    fn bar() { "baz" }
+}
+
+// { expression evaluating to an environment } '.' { expression evaluated in that environment }
+foo.bar(); // "baz"
+
+// create a polymorphic type "List of t" with constructors "Pair" and Null":
+typedef List(t) { Pair(t, List(t)) | Null }
+
+// length() is then polymorphic:
+fn length {
+    (Null) { 0 }
+    (Pair(first, rest)) { 1 + length(rest) }
+}
+
+// or use F-Natural's built-in list constructor "@" and list syntax "[]"
+fn length {
+    ([]) { 0 }
+    (h @ t) { 1 + length(t) }
+}
+
+// strings are lists of chars:
+'b' @ [ 'a', 'z' ]; // "baz"
+
+// "@@" is list append:
+['b'] @@ "az"; // "baz"
