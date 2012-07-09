@@ -3,6 +3,9 @@ A deliberately small, purely functional language with ML-like semantics and java
 I have several partially working prototypes for this language, implemented in various languages, while
 trying to iron out the basic behavior.
 
+While I'd like to write this in C, I think I need an OO language to do it neatly, so I'm going to try to
+work in a functional subset of C++.
+
 // Examples:
 
 fn factorial (n) {
@@ -36,7 +39,7 @@ fn length {
 // or use F-Natural's built-in list constructor "@" and list syntax "[]"
 fn length {
     ([]) { 0 }
-    (h @ t) { 1 + length(t) }
+    (first @ rest) { 1 + length(rest) }
 }
 
 // strings are lists of chars:
