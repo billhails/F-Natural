@@ -1,0 +1,34 @@
+# AST definitions for F-Natural
+
+abstract Expr
+
+Expr Sequence(Expr, Sequence)
+Sequence EmptySequence
+
+abstract Expr Bool
+Bool True
+Bool False
+
+abstract Expr Number
+Number Float(float)
+Number Int(int)
+
+Expr Symbol(string name, int id)
+
+Expr If(Expr condition, Sequence consequent, Sequence alternative)
+
+Expr Definition(Symbol name, Expr value)
+
+Expr Env(Sequence)
+
+abstract Args
+Args ArgsList(Expr, ArgsList)
+Args EmptyArgsList
+
+Lambda(Args args, Sequence body)
+
+# LambdaSequence is actually a function declaration.
+Expr LambdaSequence(Lambda, LambdaSequence)
+LambdaSequence EmptyLambdaSequence
+
+Expr FunctionApplication(Expr function, Args args)
