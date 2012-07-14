@@ -85,7 +85,6 @@ sub new {
         visitor => 'Visitor',
         cvis    => 'CopyingVisitor',
         printer => 'Printer',
-        xml     => 'XML',
         api     => 'API',
     };
 
@@ -191,7 +190,7 @@ sub runTemplate {
       = @_;
 
     unless ($self->findTemplate($input_template)) {
-        warn "templates $input_template not found\n";
+        warn "# warning: template $input_template for $self->{lang} not found\n";
         return;
     }
     my $template = $self->makeTemplate();
