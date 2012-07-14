@@ -17,7 +17,7 @@ Expr Symbol(string name, int id)
 
 Expr If(Expr condition, Sequence consequent, Sequence alternative)
 
-Expr Definition(Symbol name, Expr value)
+Expr Definition(Symbol var, Expr value)
 
 Expr Env(Sequence)
 
