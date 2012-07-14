@@ -1,1 +1,8 @@
 .DS_Store
+build-tools/Tree-Builder-0.1/Makefile
+build-tools/Tree-Builder-0.1/blib
+build-tools/Tree-Builder-0.1/pm_to_blib
+build-tools/Tree-Builder-0.1/test/My
+build-tools/Tree-Builder-0.1/test/cpp
+build-tools/Tree-Builder-0.1/test/perl
+build-tools/Tree-Builder-0.1/test/php
